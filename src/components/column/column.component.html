@@ -1,0 +1,66 @@
+<div class="kanban-column" cdkDropList #todoList="cdkDropList"
+     [id]="listId"
+     [cdkDropListData]="items"
+     [cdkDropListConnectedTo]="connectedTo"
+     (cdkDropListDropped)="drop($event)">
+  <h3 id="title-column">📌 {{ columnTitle }}</h3>
+  <p-scroll-panel style="height: calc(100vh - 150px); padding-right: 12px">
+    @if (items.length === 0) {
+      <div class="empty-placeholder">
+        Arraste um item...
+      </div>
+    }
+    @for (os of items; track os.id) {
+      <div cdkDrag (cdkDragStarted)="startDrag(os)"
+           (cdkDragEnded)="endDrag()">
+
+        @if (draggingItem !== os) {
+          <p-card class="kanban-card">
+            <ng-template pTemplate="title">
+              <div class="container-title">
+                <span class="marca-modelo"><i
+                  class="fa-solid fa-car"></i> {{ os.veiculo.marca }} {{ os.veiculo.modelo }} </span>
+                <span class="placa">{{ os.veiculo.placa }}</span>
+              </div>
+            </ng-template>
+            <div class="container-info">
+              <div class="flex">
+                <p class="font-bold mr-1">Proprietário(a):</p>
+                <p>{{ os.cliente.nome }}</p>
+              </div>
+              <div class="flex mt-1">
+                <p class="font-bold mr-1">Telefone:</p>
+                <p>{{ os.cliente.telefone | phoneFormat}}</p>
+              </div>
+            </div>
+            <div class="container-servicos mt-2">
+              @if(os.servicos.length > 2){
+                  <p-tag severity="danger" [value]="'Mais de 2 serviços'"></p-tag>
+              } @else {
+              @for (servico of os.servicos; track servico.id) {
+                <p-tag severity="danger" class="mr-1 mt-1" [value]="servico.descricao"></p-tag>
+              }
+              }
+            </div>
+            <ng-template pTemplate="footer">
+              <div class="container-footer">
+                <div class="data-prevista" [previsaoStatus]="os.previsaoTermino">
+                  <i class="fa-solid fa-clock mr-1"></i>
+                  <span class="data-previsao">{{ os.previsaoTermino | humanDate }}</span>
+                </div>
+                <div class="mecanico">
+                  <i class="fa-solid fa-wrench mr-1"></i>
+                  <p>{{ os.mecanico.nome }}</p>
+                </div>
+              </div>
+            </ng-template>
+
+          </p-card>
+        }
+        <ng-template cdkDragPlaceholder>
+          <div class="placeholder-card"></div>
+        </ng-template>
+      </div>
+    }
+  </p-scroll-panel>
+</div>

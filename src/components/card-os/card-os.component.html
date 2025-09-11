@@ -1,0 +1,9 @@
+<div cdkDrag>
+  @if (!draggingItem) {
+    <p-card class="kanban-card">
+      <ng-template pTemplate="title">{{ ordemServico.cliente.nome }}</ng-template>
+      <p>{{ ordemServico.veiculo.modelo }}</p>
+      <p>{{ ordemServico.veiculo.placa }}</p>
+    </p-card>
+  }
+</div>

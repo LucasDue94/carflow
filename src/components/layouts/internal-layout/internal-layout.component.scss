@@ -1,0 +1,9 @@
+.wrapping-menu {
+  display: flex;
+}
+
+.content {
+  background-color: var(--surface-background );
+  width: 100%;
+  overflow: auto;
+}

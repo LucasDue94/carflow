@@ -1,0 +1,10 @@
+<app-topbar></app-topbar>
+<div class="wrapping-menu">
+  <app-menu></app-menu>
+  <p-scroll-panel style="width: calc(100vw - 250px); height: calc(100vh - 100px)">
+    <div class="content grid grid-nogutter">
+      <router-outlet></router-outlet>
+    </div>
+  </p-scroll-panel>
+</div>
+<app-footer></app-footer>
