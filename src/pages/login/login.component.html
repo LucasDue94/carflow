@@ -1,1 +1,18 @@
-<p>login works!</p>
+<div class="grid container-login justify-content-center">
+  <form [formGroup]="form" class="grid grid-nogutter box col-6 shadow-3">
+    <h1 class="mb-5 text-blue-400">Carflow</h1>
+    <p-floatlabel class="col-10" variant="on">
+      <input class="col-12 mb-2" formControlName="login" pInputText id="login" autocomplete="off"/>
+      <label for="login">Login</label>
+    </p-floatlabel>
+    <p-floatlabel class="col-10" variant="on">
+      <input class="col-12 mb-2" formControlName="senha" pInputText id="senha" autocomplete="off"/>
+      <label for="senha">Senha</label>
+    </p-floatlabel>
+    <p-button (click)="login()" severity="primary" styleClass="col-12" class="col-10">Entrar</p-button>
+    <section>
+      <p-button link>Não tenho conta</p-button>
+      <p-button link>Esqueci minha senha</p-button>
+    </section>
+  </form>
+</div>

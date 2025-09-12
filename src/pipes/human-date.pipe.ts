@@ -45,7 +45,7 @@ export class HumanDatePipe implements PipeTransform {
       return `${weekday} às ${time}h`;
     } else if (diffDays < -1 && diffDays > -7) {
       const weekday = formatter.format(date);
-      return `${weekday} passado às ${time}h`;
+      return `${weekday.replace('-feira', '')} passada`;
     } else {
       const weekday = formatter.format(date);
       return `${weekday} dia ${date.getDate()}, ${time}h`;

@@ -13,38 +13,29 @@ import {Menu} from 'primeng/menu';
 export class MenuComponent {
   items: MenuItem[] = [
     {
-      label: 'Documents',
+      label: 'OS',
       items: [
         {
-          label: 'New',
+          label: 'Nova',
           icon: 'pi pi-plus',
-          shortcut: '⌘+N'
         },
         {
-          label: 'Search',
+          label: 'Histórico',
           icon: 'pi pi-search',
-          shortcut: '⌘+S'
         }
       ]
     },
     {
-      label: 'Profile',
+      label: 'Mecânicos',
       items: [
         {
-          label: 'Settings',
+          label: 'Novo',
           icon: 'pi pi-cog',
-          shortcut: '⌘+O'
         },
         {
-          label: 'Messages',
+          label: 'Ver todos',
           icon: 'pi pi-inbox',
-          badge: '2'
         },
-        {
-          label: 'Logout',
-          icon: 'pi pi-sign-out',
-          shortcut: '⌘+Q'
-        }
       ]
     },
     {
