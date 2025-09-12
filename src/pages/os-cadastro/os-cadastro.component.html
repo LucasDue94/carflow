@@ -1,0 +1,114 @@
+<div class="container-os col-12 grid grid-nogutter lg:max-w-30rem">
+
+  <form [formGroup]="form" class="grid m-2 align-content-start">
+    <h3 class="session-title mb-2">Cliente</h3>
+    <p-inputgroup class="mb-2">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-user"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <input pInputText id="nome" formControlName="nome" autocomplete="off"/>
+        <label for="nome">Nome</label>
+      </p-floatlabel>
+    </p-inputgroup>
+
+    <p-inputgroup class="mb-2">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-phone"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <input pInputText id="telefone" formControlName="telefone" autocomplete="off"/>
+        <label for="telefone">Telefone</label>
+      </p-floatlabel>
+    </p-inputgroup>
+
+    <h3 class="session-title mb-2">Carro</h3>
+    <p-inputgroup class="mb-2">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-tag"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <p-select id="marca"
+                  formControlName="marca"
+                  [options]="marcas"
+                  optionLabel="label"
+                  optionValue="value">
+        </p-select>
+        <label for="modelo">Marca</label>
+      </p-floatlabel>
+    </p-inputgroup>
+
+    <p-inputgroup class="mb-2">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-car"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <p-select id="modelo"
+                  formControlName="modelo"
+                  [options]="modelos"
+                  optionLabel="label"
+                  optionValue="value">
+        </p-select>
+        <label for="modelo">Modelo</label>
+      </p-floatlabel>
+    </p-inputgroup>
+
+    <p-inputgroup class="mb-2">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-id-card"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <input pInputText id="placa" formControlName="placa" autocomplete="off"/>
+        <label for="placa">Placa</label>
+      </p-floatlabel>
+    </p-inputgroup>
+
+    <h3 class="session-title mb-2">Serviço</h3>
+
+    <p-inputgroup class="mb-2">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-wrench"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <p-select
+          id="mecanico"
+          formControlName="mecanico"
+          [options]="mecanicos"
+          optionLabel="label"
+          optionValue="value">
+        </p-select>
+        <label for="mecanico">Mecânico</label>
+      </p-floatlabel>
+    </p-inputgroup>
+
+    <p-inputgroup class="mb-2">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-gears"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <p-multiSelect id="servicos"
+                       formControlName="servicos"
+                       [options]="servicos"
+                       optionLabel="label"
+                       optionValue="value">
+        </p-multiSelect>
+        <label for="servicos">Serviços</label>
+      </p-floatlabel>
+    </p-inputgroup>
+
+    <p-inputgroup class="mb-2 wfu">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-phone"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <textarea pInputTextarea id="observacao" formControlName="observacao" rows="5"></textarea>
+        <label for="observacao">Observação</label>
+      </p-floatlabel>
+    </p-inputgroup>
+
+    <section class="flex justify-content-end w-full">
+      <button pButton severity="danger" class="mr-2 ">Cancelar</button>
+      <button pButton (click)="salvar()" severity="primary">Salvar</button>
+    </section>
+  </form>
+</div>

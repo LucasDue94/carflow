@@ -18,6 +18,7 @@ export class MenuComponent {
         {
           label: 'Nova',
           icon: 'pi pi-plus',
+          routerLink: 'nova-os'
         },
         {
           label: 'Histórico',
