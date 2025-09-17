@@ -13,18 +13,34 @@ import {Menu} from 'primeng/menu';
 export class MenuComponent {
   items: MenuItem[] = [
     {
+      label: 'Principal',
+      icon: '',
+      items: [
+        {
+          label: 'Dashboard',
+          icon: 'fa-solid fa-chart-simple',
+          routerLink: 'gestao'
+        }]
+    }, {
+      separator: true
+    },
+    {
       label: 'OS',
       items: [
         {
           label: 'Nova',
-          icon: 'pi pi-plus',
-          routerLink: 'nova-os'
+          icon: 'fa-solid fa-circle-plus',
+          routerLink: 'os/new'
         },
         {
           label: 'Histórico',
-          icon: 'pi pi-search',
+          icon: 'fa-solid fa-newspaper',
+          routerLink: 'os/list'
         }
       ]
+    },
+    {
+      separator: true
     },
     {
       label: 'Mecânicos',
@@ -32,10 +48,28 @@ export class MenuComponent {
         {
           label: 'Novo',
           icon: 'pi pi-cog',
+          routerLink: 'mecanico/new'
+        },
+        {
+          label: 'Ver todos',
+          icon: 'mecanico/list',
+        },
+      ]
+    }, {
+      separator: true
+    }, {
+      label: 'Serviços',
+      items: [
+        {
+          label: 'Novo',
+          icon: 'pi pi-cog',
+          routerLink: 'servico/new'
         },
         {
           label: 'Ver todos',
           icon: 'pi pi-inbox',
+          routerLink: 'servico/list'
+
         },
       ]
     },

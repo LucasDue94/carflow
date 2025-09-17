@@ -1,4 +1,4 @@
-import { OrdemServico } from "../model/ordem-servico";
+import {OrdemServico} from "@models/ordem-servico";
 
 export const mockEntradaOs: OrdemServico[] = [{
   id: 1,
@@ -9,10 +9,26 @@ export const mockEntradaOs: OrdemServico[] = [{
     carro: [{marca: 'Ford', modelo: 'Ka', renavam: '12345678901', placa: 'ABC-1234'}]
   },
   servicos: [
-    {id: 1, descricao: 'Troca de óleo', categoria: 'Manutenção'},
-    {id: 2, descricao: 'Alinhamento', categoria: 'Manutenção'},
-    {id: 5, descricao: 'Balanceamento', categoria: 'Manutenção'},
-    {id: 6, descricao: 'Filtros do ar', categoria: 'Manutenção'},
+    {
+      id: 1, nome: 'Troca de óleo', categoria: 'Manutenção',
+      descricao: "",
+      tempoEstimadoMin: 0
+    },
+    {
+      id: 2, nome: 'Alinhamento', categoria: 'Manutenção',
+      descricao: "",
+      tempoEstimadoMin: 0
+    },
+    {
+      id: 5, nome: 'Balanceamento', categoria: 'Manutenção',
+      descricao: "",
+      tempoEstimadoMin: 0
+    },
+    {
+      id: 6, nome: 'Filtros do ar', categoria: 'Manutenção',
+      descricao: "",
+      tempoEstimadoMin: 0
+    },
   ],
   observacao: 'Cliente solicita urgência',
   dataEntrada: '2025-09-10T08:00:00',
@@ -31,8 +47,16 @@ export const mockEntradaOs: OrdemServico[] = [{
       carro: [{marca: 'Chevrolet', modelo: 'Onix', renavam: '22345678901', placa: 'DEF-5678'}]
     },
     servicos: [
-      {id: 3, descricao: 'Óleo Câmbio', categoria: 'Freios'},
-      {id: 6, descricao: 'Filtros do ar', categoria: 'Manutenção'},
+      {
+        id: 3, nome: 'Óleo Câmbio', categoria: 'Freios',
+        descricao: "",
+        tempoEstimadoMin: 0
+      },
+      {
+        id: 6, nome: 'Filtros do ar', categoria: 'Manutenção',
+        descricao: "",
+        tempoEstimadoMin: 0
+      },
     ],
     observacao: '',
     dataEntrada: '2025-09-10T09:00:00',
@@ -51,7 +75,11 @@ export const mockEntradaOs: OrdemServico[] = [{
       carro: [{marca: 'Volkswagen', modelo: 'Gol', renavam: '32345678901', placa: 'GHI-9012'}]
     },
     servicos: [
-      {id: 4, descricao: 'Troca de bateria', categoria: 'Elétrica'}
+      {
+        id: 4, nome: 'Troca de bateria', categoria: 'Elétrica',
+        descricao: "",
+        tempoEstimadoMin: 0
+      }
     ],
     observacao: 'Cliente pediu avaliação do ar-condicionado',
     dataEntrada: '2025-09-09T10:00:00',

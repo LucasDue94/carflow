@@ -1,0 +1,17 @@
+
+<p-table [value]="servicos" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template #header>
+    <tr>
+      <th>Nome</th>
+      <th>Descricao</th>
+      <th>Tempo Estimado</th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-servico>
+    <tr>
+      <td>{{ servico.nome }}</td>
+      <td>{{ servico.descricao }}</td>
+      <td>{{ servico.tempoEstimadoMin }}</td>
+    </tr>
+  </ng-template>
+</p-table>

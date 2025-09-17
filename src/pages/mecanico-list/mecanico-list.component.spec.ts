@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OsCadastroComponent } from './os-cadastro.component';
+import { MecanicoListComponent } from './mecanico-list.component';
 
-describe('OsCadastroComponent', () => {
-  let component: OsCadastroComponent;
-  let fixture: ComponentFixture<OsCadastroComponent>;
+describe('MecanicoListComponent', () => {
+  let component: MecanicoListComponent;
+  let fixture: ComponentFixture<MecanicoListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OsCadastroComponent]
+      imports: [MecanicoListComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OsCadastroComponent);
+    fixture = TestBed.createComponent(MecanicoListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OsRegisterComponent } from './os-register.component';
+import { OsListComponent } from './os-list.component';
 
-describe('OsRegisterComponent', () => {
-  let component: OsRegisterComponent;
-  let fixture: ComponentFixture<OsRegisterComponent>;
+describe('OsListComponent', () => {
+  let component: OsListComponent;
+  let fixture: ComponentFixture<OsListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OsRegisterComponent]
+      imports: [OsListComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OsRegisterComponent);
+    fixture = TestBed.createComponent(OsListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

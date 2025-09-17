@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-import {OrdemServico} from '../../model/ordem-servico';
+import {OrdemServico} from '@models/ordem-servico';
 import {mockEntradaOs} from '../../mocks/mock-entrada-os';
 import {mockAndamentoOs} from '../../mocks/mock-andamento-os';
 import {mockAguardandoPecaOs} from '../../mocks/mock-aguardando-peca-os';

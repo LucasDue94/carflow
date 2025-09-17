@@ -1,1 +1,127 @@
-<p>os-register works!</p>
+<div class="container col-12 grid grid-nogutter lg:max-w-30rem">
+  <form [formGroup]="form" class="grid m-2 align-content-start">
+    <h3 class="session-title mb-2">Cliente</h3>
+    <p-inputgroup class="mb-2">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-user"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <input pInputText id="nome" formControlName="nome" autocomplete="off"/>
+        <label for="nome">Nome</label>
+      </p-floatlabel>
+    </p-inputgroup>
+
+    <p-inputgroup class="mb-4">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-phone"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <p-inputmask
+          id="telefone"
+          mask="(99) 99999-9999"
+          slotChar="_"
+          [unmask]="true"
+          formControlName="telefone">
+        </p-inputmask>
+        <label for="telefone">Telefone</label>
+      </p-floatlabel>
+    </p-inputgroup>
+
+    <h3 class="session-title mb-2">Carro</h3>
+    <p-inputgroup class="mb-2">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-tag"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <p-select id="marca"
+                  formControlName="marca"
+                  [options]="marcas"
+                  optionLabel="nome">
+        </p-select>
+        <label for="modelo">Marca</label>
+      </p-floatlabel>
+    </p-inputgroup>
+
+    <p-inputgroup class="mb-2">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-car"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <p-select id="modelo"
+                  formControlName="modelo"
+                  [options]="modelos"
+                  optionLabel="nome"
+                  optionValue="id">
+        </p-select>
+        <label for="modelo">Modelo</label>
+      </p-floatlabel>
+    </p-inputgroup>
+
+    <p-inputgroup class="mb-2">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-id-card"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <p-inputmask
+          id="placa"
+          [mask]="mask"
+          slotChar=""
+          [unmask]="true"
+          (onComplete)="onComplete()"
+          formControlName="placa">
+        </p-inputmask>
+        <label for="placa">Placa</label>
+      </p-floatlabel>
+    </p-inputgroup>
+ <!--   <p-message [class.hidden]="isInvalid('placa')" class="block w-full" severity="error" size="small" variant="simple">Placa
+      inválida!
+    </p-message>
+-->
+    <h3 class="session-title mt-4 mb-2 block">Serviço</h3>
+    <p-inputgroup class="mb-2">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-wrench"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <p-select
+          id="mecanico"
+          formControlName="mecanico"
+          [options]="mecanicos"
+          optionLabel="label"
+          optionValue="value">
+        </p-select>
+        <label for="mecanico">Mecânico</label>
+      </p-floatlabel>
+    </p-inputgroup>
+
+    <p-inputgroup class="mb-2">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-gears"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <p-multiSelect id="servicos"
+                       formControlName="servicos"
+                       [options]="servicos"
+                       optionLabel="nome"
+                       optionValue="ide">
+        </p-multiSelect>
+        <label for="servicos">Serviços</label>
+      </p-floatlabel>
+    </p-inputgroup>
+
+    <p-inputgroup class="mb-2 wfu">
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-circle-exclamation"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <textarea pInputTextarea id="observacao" formControlName="observacao" rows="5"></textarea>
+        <label for="observacao">Observação</label>
+      </p-floatlabel>
+    </p-inputgroup>
+
+    <section class="flex justify-content-end w-full">
+      <button pButton severity="danger" class="mr-2 ">Cancelar</button>
+      <button pButton (click)="salvar()" severity="primary">Salvar</button>
+    </section>
+  </form>
+</div>

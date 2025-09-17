@@ -1,4 +1,4 @@
-import {OrdemServico} from "../model/ordem-servico";
+import {OrdemServico} from "@models/ordem-servico";
 
 export const mockAndamentoOs: OrdemServico[] = [
   {
@@ -10,7 +10,11 @@ export const mockAndamentoOs: OrdemServico[] = [
       carro: [{marca: 'Fiat', modelo: 'Argo', renavam: '62345678901', placa: 'PQR-1122'}]
     },
     servicos: [
-      {id: 7, descricao: 'Troca de óleo', categoria: 'Manutenção'},
+      {
+        id: 7, nome: 'Troca de óleo', categoria: 'Manutenção',
+        descricao: "",
+        tempoEstimadoMin: 0
+      },
     ],
     observacao: '',
     dataEntrada: '2025-09-10T07:00:00',
@@ -27,7 +31,11 @@ export const mockAndamentoOs: OrdemServico[] = [
       carro: [{marca: 'Renault', modelo: 'Sandero', renavam: '72345678901', placa: 'STU-3344'}]
     },
     servicos: [
-      {id: 8, descricao: 'Óleo Câmbio', categoria: 'Freios'}
+      {
+        id: 8, nome: 'Óleo Câmbio', categoria: 'Freios',
+        descricao: "",
+        tempoEstimadoMin: 0
+      }
     ],
     observacao: 'Urgente',
     dataEntrada: '2025-09-11T08:00:00',
@@ -44,7 +52,11 @@ export const mockAndamentoOs: OrdemServico[] = [
       carro: [{marca: 'Nissan', modelo: 'Versa', renavam: '82345678901', placa: 'VWX-5566'}]
     },
     servicos: [
-      {id: 9, descricao: 'Troca de bateria', categoria: 'Elétrica'}
+      {
+        id: 9, nome: 'Troca de bateria', categoria: 'Elétrica',
+        descricao: "",
+        tempoEstimadoMin: 0
+      }
     ],
     observacao: '',
     dataEntrada: '2025-09-12T09:00:00',

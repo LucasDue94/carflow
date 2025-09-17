@@ -15,7 +15,7 @@
            (cdkDragEnded)="endDrag()">
 
         @if (draggingItem !== os) {
-          <p-card class="kanban-card">
+          <p-card class="kanban-card" (click)="setCurrentOs(os)">
             <ng-template pTemplate="title">
               <div class="container-title">
                 <span class="marca-modelo"><i
@@ -38,7 +38,7 @@
                   <p-tag severity="danger" [value]="'Mais de 2 serviços'"></p-tag>
               } @else {
               @for (servico of os.servicos; track servico.id) {
-                <p-tag severity="danger" class="mr-1 mt-1" [value]="servico.descricao"></p-tag>
+                <p-tag severity="danger" class="mr-1 mt-1" [value]="servico.nome"></p-tag>
               }
               }
             </div>
@@ -64,3 +64,6 @@
     }
   </p-scroll-panel>
 </div>
+
+<app-modal-edicao-os [ordemServico]="currentOs" ></app-modal-edicao-os>
+<app-modal-visualizar-os [ordemServico]="currentOs" ></app-modal-visualizar-os>

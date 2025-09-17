@@ -3,8 +3,13 @@ import {GestaoComponent} from '../pages/gestao/gestao.component';
 import {ExternalLayoutComponent} from '../components/layouts/external-layout/external-layout.component';
 import {InternalLayoutComponent} from '../components/layouts/internal-layout/internal-layout.component';
 import {LoginComponent} from '../pages/login/login.component';
-import {AuthGuard} from '../guard/auth.guard';
-import {OsCadastroComponent} from '../pages/os-cadastro/os-cadastro.component';
+import {AuthGuard} from 'src/guards/auth.guard';
+import {OsRegisterComponent} from '@pages/os-register/os-register.component';
+import {MecanicoRegisterComponent} from '@pages/mecanico-register/mecanico-register.component';
+import {OsListComponent} from '@pages/os-list/os-list.component';
+import {ServicoListComponent} from '@pages/servico-list/servico-list.component';
+import {MecanicoListComponent} from '@pages/mecanico-list/mecanico-list.component';
+import {ServicoRegisterComponent} from '@pages/servico-cadastro/servico-register.component';
 
 export const routes: Routes = [
   {
@@ -25,8 +30,23 @@ export const routes: Routes = [
     children: [
       {path: '', redirectTo: 'gestao', pathMatch: 'full'},
       {path: 'gestao', component: GestaoComponent},
-      {path: 'nova-os', component: OsCadastroComponent},
-      // { path: 'ordem-servico', component: OrdemServicoComponent }
+      {
+        path: 'os', children: [
+          {path: 'new', component: OsRegisterComponent},
+          {path: 'list', component: OsListComponent},
+        ]
+      },
+      {
+        path: 'servico', children: [
+          {path: 'new', component: ServicoRegisterComponent},
+          {path: 'list', component: ServicoListComponent},
+        ]
+      }, {
+        path: 'mecanico', children: [
+          {path: 'new', component: MecanicoRegisterComponent},
+          {path: 'list', component: MecanicoListComponent},
+        ]
+      }
     ]
   },
 ];

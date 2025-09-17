@@ -1,0 +1,49 @@
+<div class="container grid lg:col-6 col-12 m-2 align-content-start" [formGroup]="form">
+  <h3 class="session-title col-12">Novo Serviço</h3>
+  <div class="lg:col-12 col-12">
+    <p-inputgroup>
+      <p-floatlabel variant="in">
+        <input size="small" pInputText id="nome" formControlName="nome" autocomplete="off"/>
+        <label for="nome">Nome</label>
+      </p-floatlabel>
+    </p-inputgroup>
+  </div>
+
+  <div class="flex">
+    <div class="lg:col-4">
+      <p-floatlabel variant="in">
+        <p-inputnumber formControlName="tempoEstimadoDias" [showButtons]="true"
+                       inputId="minmax-buttons" [min]="0" [max]="30"/>
+        <label for="tempoEstimadoDias">Dias</label>
+      </p-floatlabel>
+    </div>
+    <div class="lg:col-4">
+      <p-floatlabel variant="in">
+        <p-inputnumber formControlName="tempoEstimadoHoras" [showButtons]="true"
+                       inputId="minmax-buttons" [min]="0" [max]="59"/>
+        <label for="tempoEstimadoHoras">Horas</label>
+      </p-floatlabel>
+    </div>
+    <div class="lg:col-4">
+      <p-floatlabel variant="in">
+        <p-inputnumber formControlName="tempoEstimadoMinutos" [showButtons]="true"
+                       inputId="minmax-buttons" [min]="0" [max]="59"/>
+        <label for="tempoEstimadoMinutos">Minutos</label>
+      </p-floatlabel>
+    </div>
+  </div>
+
+  <div class="lg:col-12 col-12">
+    <p-inputgroup class="mb-2">
+      <p-floatlabel class="mb-2" variant="in">
+      <textarea pInputTextarea id="descricao" formControlName="descricao" rows="5"
+                autocomplete="off"></textarea>
+        <label for="descricao">Breve descricao</label>
+      </p-floatlabel>
+    </p-inputgroup>
+  </div>
+  <section class="flex justify-content-end w-full">
+    <button pButton severity="danger" class="mr-2 ">Cancelar</button>
+    <button pButton (click)="salvar()" severity="primary">Salvar</button>
+  </section>
+</div>

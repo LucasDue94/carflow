@@ -5,7 +5,7 @@ import { Directive, ElementRef, Input, OnChanges, Renderer2 } from '@angular/cor
   standalone: true
 })
 export class PrevisaoStatusDirective implements OnChanges {
-  @Input('previsaoStatus') previsao!: string | Date;
+  @Input('previsaoStatus') previsao!: string | Date | null | undefined;
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 

@@ -1,0 +1,22 @@
+.container-modal {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.mecanico {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  background-color: var(--p-green-100);
+  padding: 4px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.data-prevista {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  align-self: baseline;
+}

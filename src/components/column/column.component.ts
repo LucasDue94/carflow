@@ -1,13 +1,15 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, ViewChild} from '@angular/core';
 import {CdkDrag, CdkDragDrop, CdkDragPlaceholder, CdkDropList, moveItemInArray} from "@angular/cdk/drag-drop";
-import {OrdemServico} from '../../model/ordem-servico';
+import {OrdemServico} from '@models/ordem-servico';
 import {ScrollPanel} from 'primeng/scrollpanel';
 import {Card} from 'primeng/card';
 import {PrimeTemplate} from 'primeng/api';
 import {Tag} from 'primeng/tag';
 import {HumanDatePipe} from '../../pipes/human-date.pipe';
-import {PrevisaoStatusDirective} from '../directive/previsao-status.directive';
 import {PhoneFormatPipe} from '../../pipes/phone-format.pipe';
+import {ModalEdicaoOsComponent} from '../modal-edicao-os/modal-edicao-os.component';
+import {ModalVisualizarOsComponent} from '../modal-visualizar-os/modal-visualizar-os.component';
+import {PrevisaoStatusDirective} from '@directives/previsao-status.directive';
 
 @Component({
   selector: 'app-column',
@@ -22,6 +24,8 @@ import {PhoneFormatPipe} from '../../pipes/phone-format.pipe';
     HumanDatePipe,
     PrevisaoStatusDirective,
     PhoneFormatPipe,
+    ModalEdicaoOsComponent,
+    ModalVisualizarOsComponent,
   ],
   templateUrl: './column.component.html',
   styleUrl: './column.component.scss'
@@ -31,6 +35,9 @@ export class ColumnComponent {
   @Input() items!: OrdemServico[];
   @Input() columnTitle!: string;
   @Input() listId!: string;
+  @ViewChild(ModalEdicaoOsComponent) modalEdicaoOs!: ModalEdicaoOsComponent;
+  @ViewChild(ModalVisualizarOsComponent) modalVisualizarOs!: ModalVisualizarOsComponent;
+  currentOs!: OrdemServico;
 
   drop(event: CdkDragDrop<OrdemServico[]>) {
     if (event.previousContainer === event.container) {
@@ -57,4 +64,9 @@ export class ColumnComponent {
     this.draggingItem = null;
   }
 
+  setCurrentOs(os: OrdemServico) {
+    console.log(os)
+    this.currentOs = os
+    this.modalVisualizarOs.open();
+  }
 }

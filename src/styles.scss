@@ -17,15 +17,49 @@ body {
   color: #333;
 }
 
-:root {
-  //--p-scrollpanel-bar-background: #a3dbff !important;
-}
-
 .btn-full {
   width: 100%;
-  button{
+
+  button {
     width: 100%;
   }
 }
 
+.p-inputmask {
+  max-height: 45px;
+  width: 100%;
 
+  input {
+    width: 100% !important;
+    max-height: 45px !important;
+  }
+}
+
+p-floatlabel:not(:has(textarea)) {
+  max-height: 45px;
+}
+
+p-inputgroup:not(:has(textarea)) {
+  max-height: 45px;
+}
+
+.container {
+  height: calc(100vh - 150px);
+}
+
+.p-textarea {
+  width: 100%;
+}
+
+.session-title {
+  color: var(--p-gray-500);
+}
+
+.p-inputnumber {
+  max-height: 45px;
+  width: 100%;
+
+  input {
+    width: 100%;
+  }
+}

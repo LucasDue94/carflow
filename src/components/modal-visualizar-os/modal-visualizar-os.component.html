@@ -1,0 +1,48 @@
+<p-dialog (onHide)="close()" [closable]="true" [closeOnEscape]="true" [header]="header" [modal]="true"
+          [(visible)]="visible" [style]="{ width: '40vw' }">
+
+  <div class="container-modal">
+    <div class="mb-2"><span class="font-bold">Proprietário(a):</span> {{ ordemServico?.cliente?.nome }}</div>
+    <span class="mb-2"> <span
+      class="font-bold">Contato:</span> {{ ordemServico?.cliente?.telefone | phoneFormat }} </span>
+    <p-divider/>
+  </div>
+  <div class="container-servicos cursor-pointer" [formGroup]="form" (click)="editMode()">
+    @if (editServicos) {
+      <div class="flex">
+        <p-floatlabel variant="in">
+          <p-multiSelect display="chip"
+                         id="servicos"
+                         [maxSelectedLabels]="10"
+                         formControlName="servicos"
+                         [options]="servicos"
+                         optionLabel="descricao"
+                         optionValue="id">
+          </p-multiSelect>
+          <label for="servicos">Serviços</label>
+        </p-floatlabel>
+        <p-button icon="pi pi-save" aria-label="Save"/>
+      </div>
+    } @else {
+      <h4 class="mb-2">Serviços</h4>
+      @for (servico of ordemServico?.servicos; track servico.id) {
+        <p-tag severity="danger" class="mr-1 mt-1" [value]="servico?.nome"></p-tag>
+      }
+    }
+    <p-divider/>
+  </div>
+  <h4 class="mb-2">Mecânico</h4>
+  <div class="mecanico mt-2">
+    <i class="fa-solid fa-wrench mr-1"></i>
+    <p>{{ ordemServico?.mecanico?.nome }}</p>
+  </div>
+  <p-divider/>
+  <h4 class="mb-2">Observações</h4>
+  <span>{{ ordemServico?.observacao ?? 'Sem observação' }}</span>
+  <p-divider/>
+  <h4 class="mb-2">Previsão de entrega</h4>
+  <div class="data-prevista" [previsaoStatus]="ordemServico?.previsaoTermino">
+    <i class="fa-solid fa-clock mr-1"></i>
+    <span class="data-previsao">{{ ordemServico?.previsaoTermino | humanDate }}</span>
+  </div>
+</p-dialog>

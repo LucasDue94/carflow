@@ -1,0 +1,7 @@
+p-floatlabel:not(:has(textarea)) {
+  max-height: 45px;
+}
+
+.p-textarea {
+  width: 100%;
+}

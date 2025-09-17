@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import {Card} from "primeng/card";
 import {CdkDrag} from "@angular/cdk/drag-drop";
 import {PrimeTemplate} from "primeng/api";
-import { OrdemServico } from '../../model/ordem-servico';
+import { OrdemServico } from '@models/ordem-servico';
 
 @Component({
   selector: 'app-card-os',
