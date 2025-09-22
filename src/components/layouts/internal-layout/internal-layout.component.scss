@@ -3,7 +3,12 @@
 }
 
 .content {
-  background-color: var(--surface-background );
   width: 100%;
+}
+
+.scroll-container {
   overflow: auto;
+  background-color: var(--surface--background);
+  width: calc(100vw - 200px);
+  height: calc(100vh - 100px)
 }

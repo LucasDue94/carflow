@@ -83,5 +83,5 @@ export const CustomTheme = definePreset(Aura, {
         box-shadow: ${dt('shadow.lg')};
       }
     `
-  }
+  },
 });

@@ -12,7 +12,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif !important;
   background-color: #f5f5f5;
   color: #333;
 }
@@ -44,6 +44,7 @@ p-inputgroup:not(:has(textarea)) {
 }
 
 .container {
+  width: 100%;
   height: calc(100vh - 150px);
 }
 
@@ -62,4 +63,8 @@ p-inputgroup:not(:has(textarea)) {
   input {
     width: 100%;
   }
+}
+
+:root {
+  //--p-datatable-row-striped-background: var(--p-blue-200) !important; /* verde claro */
 }
