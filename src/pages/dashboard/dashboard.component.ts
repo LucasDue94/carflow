@@ -7,14 +7,14 @@ import {mockAguardandoPecaOs} from '../../mocks/mock-aguardando-peca-os';
 import {ColumnComponent} from '../../components/column/column.component';
 
 @Component({
-  selector: 'app-gestao',
+  selector: 'app-dashboard',
   imports: [
     ColumnComponent
   ],
-  templateUrl: './gestao.component.html',
-  styleUrl: './gestao.component.scss'
+  templateUrl: './dashboard.component.html',
+  styleUrl: './dashboard.component.scss'
 })
-export class GestaoComponent {
+export class DashboardComponent {
   todo: OrdemServico[] = mockEntradaOs;
 
   doing: OrdemServico[] = mockAndamentoOs;

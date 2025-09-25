@@ -1,5 +1,4 @@
-<div class="container grid lg:col-6 col-12 m-2 align-content-start" [formGroup]="form">
-  <h3 class="session-title col-12">Novo Serviço</h3>
+<div class="w-full grid lg:col-6 col-12 m-2 align-content-start" [formGroup]="form">
   <div class="lg:col-12 col-12">
     <p-inputgroup>
       <p-inputgroup-addon>
@@ -41,8 +40,4 @@
       </p-floatlabel>
     </p-inputgroup>
   </div>
-  <section class="flex justify-content-end w-full">
-    <button pButton severity="danger" class="mr-2 ">Cancelar</button>
-    <button pButton (click)="salvar()" severity="primary">Salvar</button>
-  </section>
 </div>

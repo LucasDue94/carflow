@@ -1,5 +1,5 @@
-<section class="container grid grid-nogutter p-2 w-full">
-  <p-table #dt class="w-full h-full" [value]="servicos" stripedRows
+<section class="container grid grid-nogutter p-3 w-full ">
+  <p-table #dt class="w-full h-full shadow-1 " [value]="servicos" stripedRows
            size="small"
            [scrollable]="true"
            scrollHeight="flex"
@@ -9,19 +9,19 @@
            [globalFilterFields]="['nome', 'descricao', 'tempoEstimadoMin']"
            [tableStyle]="{ 'min-width': '75rem' }">
     <ng-template #caption>
-      <h3 class="session-title m-3">Serviços</h3>
+      <h3 class="session-title m-2 mb-3">Serviços</h3>
       <section class="flex justify-content-between  mb-2">
         <p-input-group class="w-13rem">
           <p-inputgroup-addon>
             <i class="pi pi-search"></i>
           </p-inputgroup-addon>
           <input pInputText type="text" [(ngModel)]="searchValue"
-                 (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Keyboard Search"/>
+                 (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Pesquisa..."/>
         </p-input-group>
         <div>
-          <p-button icon="pi pi-plus" class="ml-3 rotate-hover" styleClass="rotate-hover" [rounded]="true"
+          <p-button (click)="openModalNovoServico()" icon="pi pi-plus" class="ml-3 rotate-hover" label="Novo"
+                    styleClass="rotate-hover" [rounded]="true"
                     severity="success"/>
-<!--          <span class="text-green-600 ml-2">novo</span>-->
         </div>
       </section>
     </ng-template>
@@ -50,7 +50,8 @@
         <td>{{ servico.tempoEstimadoMin }}</td>
         <td>{{ servico.descricao }}</td>
         <td>
-          <p-button icon="pi pi-pencil" [rounded]="true" [text]="true" severity="primary"/>
+          <p-button icon="pi pi-pencil" (click)="openModalEdicaoServico(servico)" [rounded]="true" [text]="true"
+                    severity="primary"/>
           <p-button icon="pi pi-trash" [rounded]="true" [text]="true" severity="danger"/>
         </td>
       </tr>
@@ -58,3 +59,20 @@
   </p-table>
 </section>
 
+<p-dialog (onHide)="close()" [closable]="true" [closeOnEscape]="true" header="Novo Serviço" [modal]="true"
+          [(visible)]="displayModalNovoServico" [style]="{ width: '40vw' }">
+  <app-servico-form></app-servico-form>
+  <ng-template #footer>
+    <button pButton (click)="close()" severity="danger" class="mr-2 ">Cancelar</button>
+    <button pButton (click)="salvar()" severity="primary">Salvar</button>
+  </ng-template>
+</p-dialog>
+
+<p-dialog (onHide)="close()" [closable]="true" [closeOnEscape]="true" header="Editar Serviço" [modal]="true"
+          [(visible)]="displayModalEdicaoServico" [style]="{ width: '40vw' }">
+  <app-servico-form [initialValue]="currentServico" [isEdit]="true"></app-servico-form>
+  <ng-template #footer>
+    <button pButton (click)="close()" severity="danger" class="mr-2 ">Cancelar</button>
+    <button pButton (click)="salvar()" severity="primary">Salvar</button>
+  </ng-template>
+</p-dialog>

@@ -6,7 +6,7 @@ export const mockEntradaOs: OrdemServico[] = [{
   cliente: {
     nome: 'Carlos Silva',
     telefone: '11987654321',
-    carro: [{marca: 'Ford', modelo: 'Ka', renavam: '12345678901', placa: 'ABC-1234'}]
+    veiculos: [{marca: 'Ford', modelo: 'Ka', renavam: '12345678901', placa: 'ABC-1234'}]
   },
   servicos: [
     {
@@ -44,7 +44,7 @@ export const mockEntradaOs: OrdemServico[] = [{
         'Ana Souza',
       telefone:
         '11998765432',
-      carro: [{marca: 'Chevrolet', modelo: 'Onix', renavam: '22345678901', placa: 'DEF-5678'}]
+      veiculos: [{marca: 'Chevrolet', modelo: 'Onix', renavam: '22345678901', placa: 'DEF-5678'}]
     },
     servicos: [
       {
@@ -72,7 +72,7 @@ export const mockEntradaOs: OrdemServico[] = [{
         'Bruna Martins',
       telefone:
         '11987651234',
-      carro: [{marca: 'Volkswagen', modelo: 'Gol', renavam: '32345678901', placa: 'GHI-9012'}]
+      veiculos: [{marca: 'Volkswagen', modelo: 'Gol', renavam: '32345678901', placa: 'GHI-9012'}]
     },
     servicos: [
       {

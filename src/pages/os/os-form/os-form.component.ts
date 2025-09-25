@@ -1,8 +1,8 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {MultiSelect} from 'primeng/multiselect';
 import {Textarea} from 'primeng/textarea';
 import {ButtonDirective} from 'primeng/button';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {ReactiveFormsModule, Validators} from '@angular/forms';
 import {Select} from 'primeng/select';
 import {FloatLabel} from 'primeng/floatlabel';
 import {InputText} from 'primeng/inputtext';
@@ -10,9 +10,11 @@ import {InputGroup} from 'primeng/inputgroup';
 import {InputGroupAddon} from 'primeng/inputgroupaddon';
 import {marcaModelo} from '@consts/marca-modelo';
 import {InputMask} from 'primeng/inputmask';
+import {BaseForm} from '@components/base-form/base-form';
+import { OrdemServico } from '@models/ordem-servico';
 
 @Component({
-  selector: 'app-os-register',
+  selector: 'app-os-form',
   imports: [
     MultiSelect,
     Textarea,
@@ -25,22 +27,10 @@ import {InputMask} from 'primeng/inputmask';
     InputGroupAddon,
     InputMask
   ],
-  templateUrl: './os-register.component.html',
-  styleUrl: './os-register.component.scss'
+  templateUrl: './os-form.component.html',
+  styleUrl: './os-form.component.scss'
 })
-export class OsRegisterComponent implements OnInit {
-  private fb = inject(FormBuilder)
-  form: FormGroup = this.fb.group({
-    nome: ['', Validators.required],
-    telefone: ['', Validators.required],
-    marca: ['', Validators.required],
-    modelo: ['', Validators.required],
-    placa: ['AAA9999', Validators.required],
-    mecanico: ['', Validators.required],
-    servicos: [[], Validators.required],
-    observacao: ['', Validators.required],
-  });
-
+export class OsFormComponent extends BaseForm<OrdemServico> implements OnInit, OnChanges {
   marcas = marcaModelo;
   modelos = [];
 
@@ -126,7 +116,23 @@ export class OsRegisterComponent implements OnInit {
   protected formSubmitted = false;
 
   ngOnInit() {
+    this.form = this.fb.group({
+      nome: ['', Validators.required],
+      telefone: ['', Validators.required],
+      marca: ['', Validators.required],
+      modelo: ['', Validators.required],
+      placa: ['AAA9999', Validators.required],
+      mecanico: ['', Validators.required],
+      servicos: [[], Validators.required],
+      observacao: ['', Validators.required],
+    });
     this.listenModelos()
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['initialValue'] && this.initialValue) {
+      this.form.patchValue(this.initialValue);
+    }
   }
 
   listenModelos() {

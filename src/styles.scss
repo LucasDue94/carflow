@@ -68,3 +68,34 @@ p-inputgroup:not(:has(textarea)) {
 :root {
   //--p-datatable-row-striped-background: var(--p-blue-200) !important; /* verde claro */
 }
+
+.w-min-300 {
+  min-width: 300px;
+}
+
+.w-min-250 {
+  min-width: 250px;
+}
+
+.w-min-200 {
+  min-width: 200px;
+}
+
+.w-min-150 {
+  min-width: 150px;
+}
+
+.w-min-100 {
+  min-width: 100px;
+}
+
+.w-min-50 {
+  min-width: 50px;
+}
+
+.w-fixed-100{
+  width: 100px;
+}
+.w-fixed-150{
+  width: 150px;
+}

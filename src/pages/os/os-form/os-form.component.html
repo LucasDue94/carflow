@@ -1,6 +1,5 @@
-<div class="container col-12 grid grid-nogutter lg:max-w-30rem">
+<div class="col-12 grid grid-nogutter w-full">
   <form [formGroup]="form" class="grid m-2 align-content-start">
-    <h3 class="session-title mb-2">Cliente</h3>
     <p-inputgroup class="mb-2">
       <p-inputgroup-addon>
         <i class="fa-solid fa-user"></i>
@@ -118,10 +117,5 @@
         <label for="observacao">Observação</label>
       </p-floatlabel>
     </p-inputgroup>
-
-    <section class="flex justify-content-end w-full">
-      <button pButton severity="danger" class="mr-2 ">Cancelar</button>
-      <button pButton (click)="salvar()" severity="primary">Salvar</button>
-    </section>
   </form>
 </div>

@@ -7,7 +7,7 @@ export const mockAndamentoOs: OrdemServico[] = [
     cliente: {
       nome: 'Sérgio Almeida',
       telefone: '11987654322',
-      carro: [{marca: 'Fiat', modelo: 'Argo', renavam: '62345678901', placa: 'PQR-1122'}]
+      veiculos: [{marca: 'Fiat', modelo: 'Argo', renavam: '62345678901', placa: 'PQR-1122'}]
     },
     servicos: [
       {
@@ -28,7 +28,7 @@ export const mockAndamentoOs: OrdemServico[] = [
     cliente: {
       nome: 'Mariana Costa',
       telefone: '11998765433',
-      carro: [{marca: 'Renault', modelo: 'Sandero', renavam: '72345678901', placa: 'STU-3344'}]
+      veiculos: [{marca: 'Renault', modelo: 'Sandero', renavam: '72345678901', placa: 'STU-3344'}]
     },
     servicos: [
       {
@@ -49,7 +49,7 @@ export const mockAndamentoOs: OrdemServico[] = [
     cliente: {
       nome: 'Felipe Oliveira',
       telefone: '11987654323',
-      carro: [{marca: 'Nissan', modelo: 'Versa', renavam: '82345678901', placa: 'VWX-5566'}]
+      veiculos: [{marca: 'Nissan', modelo: 'Versa', renavam: '82345678901', placa: 'VWX-5566'}]
     },
     servicos: [
       {

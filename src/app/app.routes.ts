@@ -1,15 +1,16 @@
 import {Routes} from '@angular/router';
-import {GestaoComponent} from '../pages/gestao/gestao.component';
+import {DashboardComponent} from '@pages/dashboard/dashboard.component';
 import {ExternalLayoutComponent} from '../components/layouts/external-layout/external-layout.component';
 import {InternalLayoutComponent} from '../components/layouts/internal-layout/internal-layout.component';
 import {LoginComponent} from '../pages/login/login.component';
 import {AuthGuard} from 'src/guards/auth.guard';
-import {OsRegisterComponent} from '@pages/os-register/os-register.component';
-import {MecanicoRegisterComponent} from '@pages/mecanico-register/mecanico-register.component';
-import {OsListComponent} from '@pages/os-list/os-list.component';
-import {ServicoListComponent} from '@pages/servico-list/servico-list.component';
-import {MecanicoListComponent} from '@pages/mecanico-list/mecanico-list.component';
-import {ServicoRegisterComponent} from '@pages/servico-cadastro/servico-register.component';
+import {OsFormComponent} from '@pages/os/os-form/os-form.component';
+import {MecanicoFormComponent} from '@pages/mecanico/mecanico-form/mecanico-form.component';
+import {OsComponent} from '@pages/os/os.component';
+import {ServicoComponent} from '@pages/servico/servico.component';
+import {MecanicoComponent} from '@pages/mecanico/mecanico.component';
+import {ClienteComponent} from '@pages/cliente/cliente.component';
+import {ClienteFormComponent} from '@pages/cliente/cliente-form/cliente-form.component';
 
 export const routes: Routes = [
   {
@@ -28,23 +29,27 @@ export const routes: Routes = [
     component: InternalLayoutComponent,
     canActivate: [AuthGuard],
     children: [
-      {path: '', redirectTo: 'gestao', pathMatch: 'full'},
-      {path: 'gestao', component: GestaoComponent},
+      {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+      {path: 'dashboard', component: DashboardComponent},
       {
         path: 'os', children: [
-          {path: 'new', component: OsRegisterComponent},
-          {path: 'list', component: OsListComponent},
+          {path: 'new', component: OsFormComponent},
+          {path: 'list', component: OsComponent},
         ]
       },
       {
+        path: 'cliente', children: [
+          {path: 'list', component: ClienteComponent},
+          {path: 'form', component: ClienteFormComponent},
+        ]
+      }, {
         path: 'servico', children: [
-          {path: 'new', component: ServicoRegisterComponent},
-          {path: 'list', component: ServicoListComponent},
+          {path: 'list', component: ServicoComponent},
         ]
       }, {
         path: 'mecanico', children: [
-          {path: 'new', component: MecanicoRegisterComponent},
-          {path: 'list', component: MecanicoListComponent},
+          {path: 'new', component: MecanicoFormComponent},
+          {path: 'list', component: MecanicoComponent},
         ]
       }
     ]

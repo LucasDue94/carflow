@@ -23,3 +23,11 @@
 :host ::ng-deep .p-button.rotate-hover:hover .pi {
   transform: rotate(90deg);
 }
+
+:host::ng-deep.p-datatable-thead > tr > th {
+  background-color: var(--p-gray-200) !important;
+}
+
+:host::ng-deep.p-datatable.p-datatable-thead > tr > th{
+  padding: 8px;
+}

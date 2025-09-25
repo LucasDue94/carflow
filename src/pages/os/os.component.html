@@ -1,0 +1,92 @@
+<section class="container grid grid-nogutter p-3 w-full ">
+  <p-table #dt class="w-full h-full shadow-1 " [value]="ordens" stripedRows
+           size="small"
+           [scrollable]="true"
+           scrollHeight="flex"
+           [virtualScroll]="true"
+           [virtualScrollItemSize]="50"
+           [loading]="loading"
+           [globalFilterFields]="globalFilters"
+           [tableStyle]="{ 'min-width': '75rem' }">
+    <ng-template #caption>
+      <h3 class="session-title m-2 mb-3">Ordens de Serviço</h3>
+      <section class="flex justify-content-between  mb-2">
+        <p-input-group class="w-13rem">
+          <p-inputgroup-addon>
+            <i class="pi pi-search"></i>
+          </p-inputgroup-addon>
+          <input pInputText type="text" [(ngModel)]="searchValue"
+                 (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Pesquisa..."/>
+        </p-input-group>
+        <div>
+          <p-button (click)="openModalNovoServico()" icon="pi pi-plus" class="ml-3 rotate-hover" label="Nova"
+                    styleClass="rotate-hover" [rounded]="true"
+                    severity="success"/>
+        </div>
+      </section>
+    </ng-template>
+
+    <ng-template #header>
+      <tr>
+        <th class="w-min-100 text-center flex justify-content-center" pSortableColumn="id">
+          <div class="flex justify-content-center gap-2">
+            id
+            <p-sortIcon field="id"/>
+          </div>
+        </th>
+        <th class="w-min-100" pSortableColumn="cliente.nome">
+          <div class="flex items-center gap-2">
+            Cliente
+            <p-sortIcon field="cliente.nome"/>
+          </div>
+        </th>
+        <th class="w-min-150">Telefone</th>
+        <th class="w-min-100">Placa</th>
+        <th class="w-min-100">Marca/Modelo</th>
+        <th class="w-min-300">Observações</th>
+        <th class="w-min-100">Entrada</th>
+        <th class="w-min-100">Saída</th>
+        <th class="w-min-100">Previsão</th>
+        <th class="w-min-100">Mecânico</th>
+        <th class="text-center w-min-100" alignFrozen="right" [frozen]="true" pFrozenColumn>#</th>
+      </tr>
+    </ng-template>
+    <ng-template #body let-ordemServico>
+      <tr>
+        <td class="text-center">{{ ordemServico.id }}</td>
+        <td>{{ ordemServico.cliente.nome }}</td>
+        <td>{{ ordemServico.cliente.telefone | phoneFormat }}</td>
+        <td>{{ ordemServico.veiculo.placa }}</td>
+        <td>{{ ordemServico.veiculo.marca }} {{ ordemServico.veiculo.modelo }}</td>
+        <td>{{ ordemServico.observacao }}</td>
+        <td>{{ ordemServico.dataEntrada | dateFormat }}</td>
+        <td>{{ ordemServico.dataSaida | dateFormat }}</td>
+        <td>{{ ordemServico.previsaoTermino | dateFormat }}</td>
+        <td>{{ ordemServico.mecanico.nome }}</td>
+        <td pFrozenColumn alignFrozen="right" [frozen]="true">
+          <p-button icon="pi pi-pencil" (click)="openModalEdicaoServico(ordemServico)" [rounded]="true" [text]="true"
+                    severity="primary"/>
+          <p-button icon="pi pi-trash" [rounded]="true" [text]="true" severity="danger"/>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</section>
+
+<p-dialog (onHide)="close()" [closable]="true" [closeOnEscape]="true" header="Nova OS" [modal]="true"
+          [(visible)]="displayModalNovaOS" [style]="{ width: '40vw' }">
+  <app-os-form></app-os-form>
+  <ng-template #footer>
+    <button pButton (click)="close()" severity="danger" class="mr-2 ">Cancelar</button>
+    <button pButton (click)="salvar()" severity="primary">Salvar</button>
+  </ng-template>
+</p-dialog>
+
+<p-dialog (onHide)="close()" [closable]="true" [closeOnEscape]="true" header="Editar OS" [modal]="true"
+          [(visible)]="displayModalEdicaoOS" [style]="{ width: '40vw' }">
+  <app-os-form [initialValue]="currentOS" [isEdit]="true"></app-os-form>
+  <ng-template #footer>
+    <button pButton (click)="close()" severity="danger" class="mr-2 ">Cancelar</button>
+    <button pButton (click)="salvar()" severity="primary">Salvar</button>
+  </ng-template>
+</p-dialog>

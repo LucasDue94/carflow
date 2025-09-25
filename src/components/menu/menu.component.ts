@@ -14,67 +14,39 @@ export class MenuComponent {
   items: MenuItem[] = [
     {
       label: 'Principal',
-      icon: '',
       items: [
         {
           label: 'Dashboard',
           icon: 'fa-solid fa-chart-simple',
-          routerLink: 'gestao'
+          routerLink: 'dashboard'
         }]
     }, {
       separator: true
     },
     {
-      label: 'OS',
+      label: 'Gestão',
       items: [
         {
-          label: 'Nova',
-          icon: 'fa-solid fa-circle-plus',
-          routerLink: 'os/new'
-        },
-        {
-          label: 'Histórico',
+          label: 'OS',
           icon: 'fa-solid fa-newspaper',
           routerLink: 'os/list'
-        }
-      ]
-    },
-    {
-      separator: true
-    },
-    {
-      label: 'Mecânicos',
-      items: [
+        },
         {
-          label: 'Novo',
+          label: 'Clientes',
+          icon: 'fa-solid fa-user',
+          routerLink: 'cliente/list'
+        },
+        {
+          label: 'Mecânicos',
           icon: 'pi pi-cog',
-          routerLink: 'mecanico/new'
+          routerLink: 'mecanico/list'
         },
         {
-          label: 'Ver todos',
-          icon: 'mecanico/list',
-        },
-      ]
-    }, {
-      separator: true
-    }, {
-      label: 'Serviços',
-      items: [
-        {
-          label: 'Novo',
+          label: 'Serviços',
           icon: 'pi pi-cog',
-          routerLink: 'servico/new'
-        },
-        {
-          label: 'Ver todos',
-          icon: 'pi pi-inbox',
           routerLink: 'servico/list'
-
         },
       ]
-    },
-    {
-      separator: true
     }
   ];
 }

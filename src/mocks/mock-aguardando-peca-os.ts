@@ -7,7 +7,7 @@ export const mockAguardandoPecaOs: OrdemServico[] = [
     cliente: {
       nome: 'Aline Souza',
       telefone: '11987654324',
-      carro: [{marca: 'Chevrolet', modelo: 'Prisma', renavam: '112345678901', placa: 'EFG-1122'}]
+      veiculos: [{marca: 'Chevrolet', modelo: 'Prisma', renavam: '112345678901', placa: 'EFG-1122'}]
     },
     servicos: [{
       id: 12, nome: 'Troca de óleo', categoria: 'Manutenção',
@@ -26,7 +26,7 @@ export const mockAguardandoPecaOs: OrdemServico[] = [
     cliente: {
       nome: 'Diego Lima',
       telefone: '11998765434',
-      carro: [{marca: 'Toyota', modelo: 'Yaris', renavam: '122345678901', placa: 'HIJ-3344'}]
+      veiculos: [{marca: 'Toyota', modelo: 'Yaris', renavam: '122345678901', placa: 'HIJ-3344'}]
     },
     servicos: [{
       id: 13, nome: 'Óleo Câmbio', categoria: 'Freios',

@@ -1,0 +1,100 @@
+<div class="w-full grid lg:col-6 col-12 m-2 align-content-start" [formGroup]="form">
+  <div class="lg:col-12 col-12">
+    <h3 class="session-title ml-1 mb-2">Cliente</h3>
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-user"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <input size="small" pInputText id="nome" formControlName="nome" autocomplete="off"/>
+        <label for="nome">Nome</label>
+      </p-floatlabel>
+    </p-inputgroup>
+  </div>
+
+  <div class="lg:col-12 col-12">
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-phone"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <p-inputmask
+          id="telefone"
+          mask="(99) 99999-9999"
+          slotChar="_"
+          [unmask]="true"
+          formControlName="telefone">
+        </p-inputmask>
+        <label for="telefone">Telefone</label>
+      </p-floatlabel>
+    </p-inputgroup>
+  </div>
+
+  <div class="lg:col-12 col-12">
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-at"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <input size="small" pInputText id="email" formControlName="email" autocomplete="off"/>
+        <label for="nome">E-mail</label>
+      </p-floatlabel>
+    </p-inputgroup>
+  </div>
+
+  <div class="lg:col-12 col-12">
+    <h3 class="session-title ml-1 mb-2 mt-2">Carro</h3>
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-tag"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <p-select id="marca"
+                  appendTo="body"
+                  formControlName="marca"
+                  [options]="marcas"
+                  optionLabel="nome">
+        </p-select>
+        <label for="modelo">Marca</label>
+      </p-floatlabel>
+    </p-inputgroup>
+  </div>
+
+  <div class="lg:col-12 col-12">
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-car"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <p-select id="modelo"
+                  appendTo="body"
+                  formControlName="modelo"
+                  [options]="modelos"
+                  optionLabel="nome"
+                  optionValue="id">
+        </p-select>
+        <label for="modelo">Modelo</label>
+      </p-floatlabel>
+    </p-inputgroup>
+  </div>
+  <div class="lg:col-12 col-12">
+
+    <p-inputgroup>
+      <p-inputgroup-addon>
+        <i class="fa-solid fa-id-card"></i>
+      </p-inputgroup-addon>
+      <p-floatlabel variant="in">
+        <p-inputmask
+          id="placa"
+          [mask]="mask"
+          slotChar=""
+          [unmask]="true"
+          (onComplete)="onComplete()"
+          formControlName="placa">
+        </p-inputmask>
+        <label for="placa">Placa</label>
+      </p-floatlabel>
+    </p-inputgroup>
+  </div>
+</div>
