@@ -33,7 +33,7 @@ export const mockEntradaOs: OrdemServico[] = [{
   observacao: 'Cliente solicita urgência',
   dataEntrada: '2025-09-10T08:00:00',
   dataSaida: '2025-09-11T17:00:00',
-  previsaoTermino: '2025-09-11T12:00:00',
+  previsaoTermino: '2025-09-30T12:00:00',
   mecanico: {id: 1, nome: 'João Pereira', telefone: '11912345678'}
 },
   {

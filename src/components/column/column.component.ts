@@ -35,6 +35,8 @@ export class ColumnComponent {
   @Input() items!: OrdemServico[];
   @Input() columnTitle!: string;
   @Input() listId!: string;
+  @Input() iconClass!: string;
+
   @ViewChild(ModalEdicaoOsComponent) modalEdicaoOs!: ModalEdicaoOsComponent;
   @ViewChild(ModalVisualizarOsComponent) modalVisualizarOs!: ModalVisualizarOsComponent;
   currentOs!: OrdemServico;

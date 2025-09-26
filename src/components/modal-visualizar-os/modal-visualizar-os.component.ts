@@ -1,4 +1,4 @@
-import {Component, inject, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, inject, Input, OnChanges, signal, SimpleChanges} from '@angular/core';
 import {Dialog} from 'primeng/dialog';
 import {OrdemServico} from '@models/ordem-servico';
 import {Tag} from 'primeng/tag';
@@ -32,7 +32,7 @@ export class ModalVisualizarOsComponent implements OnChanges {
   @Input() ordemServico!: OrdemServico
   visible = false
   header!: string;
-  editServicos = false;
+  editServicos = signal(false);
   servicos = [
     {id: 1, descricao: 'Troca de óleo', categoria: 'Manutenção'},
     {id: 2, descricao: 'Alinhamento', categoria: 'Manutenção'},
@@ -77,6 +77,7 @@ export class ModalVisualizarOsComponent implements OnChanges {
   }
 
   editMode() {
-    this.editServicos = true;
+    this.editServicos.update(value => !value);
   }
+
 }

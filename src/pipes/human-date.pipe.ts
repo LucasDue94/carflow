@@ -24,6 +24,12 @@ export class HumanDatePipe implements PipeTransform {
     const target = new Date(date.getFullYear(), date.getMonth(), date.getDate());
     const diffDays = Math.round((+target - +today) / (1000 * 60 * 60 * 24));
 
+    const dia = date.getDate().toString().padStart(2, '0');
+    const mes = (date.getMonth() + 1).toString().padStart(2, '0');
+    const ano = date.getFullYear().toString().slice(-2);
+    const horas = date.getHours().toString().padStart(2, '0');
+    const minutos = date.getMinutes().toString().padStart(2, '0');
+
     // Diferença em horas
     const diffHours = Math.round((+date - +now) / (1000 * 60 * 60));
 
@@ -47,8 +53,7 @@ export class HumanDatePipe implements PipeTransform {
       const weekday = formatter.format(date);
       return `${weekday.replace('-feira', '')} passada`;
     } else {
-      const weekday = formatter.format(date);
-      return `${weekday} dia ${date.getDate()}, ${time}h`;
+      return `${dia}/${mes}/${ano} - ${horas}:${minutos}h`;
     }
   }
 }

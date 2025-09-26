@@ -1,10 +1,10 @@
 <div class="kanban-board">
-  <app-column columnTitle="Entrada" [items]="todo" listId="todoList"
+  <app-column columnTitle="Entrada" [items]="todo" listId="todoList" [iconClass]="todoIcon"
               [connectedTo]="['doingList', 'doneList', 'waitingList']"></app-column>
-  <app-column columnTitle="Em andamento" [items]="doing" listId="doingList"
+  <app-column columnTitle="Em andamento" [items]="doing" listId="doingList" [iconClass]="doingIcon"
               [connectedTo]="['todoList', 'doneList', 'waitingList']"></app-column>
-  <app-column columnTitle="Aguardando peça" [items]="waiting" listId="waitingList"
+  <app-column columnTitle="Aguardando peça" [items]="waiting" listId="waitingList" [iconClass]="waitingIcon"
               [connectedTo]="['todoList', 'doingList', 'doneList']"></app-column>
-  <app-column columnTitle="Pronto para retirada" [items]="done" listId="doneList"
+  <app-column columnTitle="Pronto para retirada" [items]="done" listId="doneList" [iconClass]="doneIcon"
               [connectedTo]="['todoList', 'doingList', 'waitingList']"></app-column>
 </div>

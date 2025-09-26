@@ -15,8 +15,50 @@
 }
 
 .data-prevista {
+  max-width: 150px;
   font-size: 12px;
   display: flex;
   align-items: center;
   align-self: baseline;
+}
+
+:host::ng-deep.save-btn {
+  .p-button {
+    height: 27px;
+    width: 27px;
+
+    .p-button-icon{
+      font-size: 12px;
+    }
+
+  }
+}
+
+:host::ng-deep.cancel-btn {
+  .p-button {
+    height: 27px;
+    width: 27px;
+
+    .p-button-icon{
+      font-size: 12px;
+    }
+
+  }
+}
+
+:host::ng-deep.p-multiselect-label:has(.p-chip) {
+  padding: 2px;
+}
+
+:host::ng-deep.p-multiselect-label-container{
+  height: 25px;
+}
+
+:host::ng-deep.p-multiselect-label-container{
+  font-size: 12px;
+}
+
+:host::ng-deep.p-multiselect-label .p-chip {
+  padding: 2px;
+  background-color: var(--p-primary-100);
 }

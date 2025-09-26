@@ -1,5 +1,5 @@
 <p-dialog (onHide)="close()" [closable]="true" [closeOnEscape]="true" [header]="header" [modal]="true"
-          [(visible)]="visible" [style]="{ width: '40vw' }">
+          [(visible)]="visible" [style]="{ width: '60vw' }">
 
   <div class="container-modal">
     <div class="mb-2"><span class="font-bold">Proprietário(a):</span> {{ ordemServico?.cliente?.nome }}</div>
@@ -7,13 +7,14 @@
       class="font-bold">Contato:</span> {{ ordemServico?.cliente?.telefone | phoneFormat }} </span>
     <p-divider/>
   </div>
-  <div class="container-servicos cursor-pointer" [formGroup]="form" (click)="editMode()">
-    @if (editServicos) {
+  <div class="container-servicos mt-2" [formGroup]="form">
+    @if (editServicos()) {
       <div class="flex">
-        <p-floatlabel variant="in">
+        <p-floatlabel variant="over" class="w-full">
           <p-multiSelect display="chip"
+                         class="w-full"
                          id="servicos"
-                         [maxSelectedLabels]="10"
+                         [maxSelectedLabels]="5"
                          formControlName="servicos"
                          [options]="servicos"
                          optionLabel="descricao"
@@ -21,12 +22,13 @@
           </p-multiSelect>
           <label for="servicos">Serviços</label>
         </p-floatlabel>
-        <p-button icon="pi pi-save" aria-label="Save"/>
+        <p-button (click)="editMode()" class="save-btn ml-2" icon="pi pi-save" aria-label="Save"/>
+        <p-button (click)="editMode()" class="cancel-btn ml-1" icon="pi pi-times" severity="danger" aria-label="Cancel"/>
       </div>
     } @else {
       <h4 class="mb-2">Serviços</h4>
       @for (servico of ordemServico?.servicos; track servico.id) {
-        <p-tag severity="danger" class="mr-1 mt-1" [value]="servico?.nome"></p-tag>
+        <p-tag (click)="editMode()" severity="danger" class="mr-1 mt-1 cursor-pointer" [value]="servico?.nome"></p-tag>
       }
     }
     <p-divider/>

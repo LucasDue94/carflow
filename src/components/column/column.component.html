@@ -3,7 +3,7 @@
      [cdkDropListData]="items"
      [cdkDropListConnectedTo]="connectedTo"
      (cdkDropListDropped)="drop($event)">
-  <h3 id="title-column">📌 {{ columnTitle }}</h3>
+  <h3 id="title-column"> <i [class]="iconClass"></i> {{ columnTitle }}</h3>
   <p-scroll-panel style="height: calc(100vh - 150px); padding-right: 12px">
     @if (items.length === 0) {
       <div class="empty-placeholder">

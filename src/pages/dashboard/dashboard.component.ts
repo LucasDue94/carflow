@@ -17,23 +17,14 @@ import {ColumnComponent} from '../../components/column/column.component';
 export class DashboardComponent {
   todo: OrdemServico[] = mockEntradaOs;
 
-  doing: OrdemServico[] = mockAndamentoOs;
+  doing: OrdemServico[] = [];
 
   done: OrdemServico[] = [];
 
-  waiting: OrdemServico[] = mockAguardandoPecaOs
+  waiting: OrdemServico[] = []
+  todoIcon = "fa-solid fa-flag-checkered";
+  doingIcon = "fa-solid fa-bars-progress";
+  waitingIcon = "fa-solid fa-hourglass-half";
+  doneIcon = "fa-solid fa-check";
 
-  drop(event: CdkDragDrop<OrdemServico[]>) {
-    console.log(event)
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex,
-      );
-    }
-  }
 }

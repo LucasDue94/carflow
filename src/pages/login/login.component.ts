@@ -26,7 +26,7 @@ export class LoginComponent {
 
 
   login() {
-    this.router.navigate(['app/gestao']);
+    this.router.navigate(['app/dashboard']);
   }
 
 }
